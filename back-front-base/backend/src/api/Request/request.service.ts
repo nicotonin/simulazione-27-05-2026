@@ -38,6 +38,8 @@ export class RequestService {
 
     request.stato = stato;
     request.role2ID = valutatoreId;
+    request.dataValutazione = new Date();
+
 
     await request.save();
     return request;

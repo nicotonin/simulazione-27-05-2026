@@ -4,6 +4,8 @@ export interface Request1 {
   dataFine: Date;
   categoriaId: string;// FK categoria
   stato: 'In attesa' | 'Approvato' | 'Rifiutato';
-  role1ID: string;// FK role1 (untente con meno accesso)
-  role2ID?: string;// FK role2
+  dataValutazione?: Date;
+  motivazione?: string; 
+  role1ID: string;// FK role1 dipendente che ha fatto la richiesta
+  role2ID?: string;// FK role2  responsbaile della valutazione
 }

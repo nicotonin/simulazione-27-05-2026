@@ -54,12 +54,13 @@ export const getRequestById = async (req: Request, res: Response, next: NextFunc
 export const createRequest = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const userId = req.user?.id;
-    const { dataInizio, dataFine, categoriaId} = req.body;
+    const { dataInizio, dataFine, categoriaId,motivazione } = req.body;
 
     const data: Request1 = {
       dataInizio: new Date(dataInizio),
       dataFine: new Date(dataFine),
       categoriaId,
+      motivazione,
       stato: "In attesa",
       role1ID: userId!
     };

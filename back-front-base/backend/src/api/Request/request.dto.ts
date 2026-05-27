@@ -7,6 +7,14 @@ export class CreateRequestDTO {
   @IsDateString()
   dataFine: string;
 
+  @IsDateString()
+  @IsOptional()
+  dataValutazione?: string;
+
+  @IsString()
+  @IsOptional()
+  motivazione?: string;
+
   @IsString()
   @IsNotEmpty()
   categoriaId: string;
@@ -20,4 +28,8 @@ export class UpdateRequestDTO {
   @IsDateString()
   @IsOptional()
   dataFine?: string;
+
+  @IsDateString()
+  @IsOptional()
+  dataValutazione?: string;
 }
