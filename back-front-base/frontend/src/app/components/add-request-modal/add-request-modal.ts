@@ -43,11 +43,22 @@ import { CategoryService } from '../../service/category.service';
         <select class="form-control" [(ngModel)]="categoriaId">
           <option value="">-- Seleziona categoria --</option>
 
-          <option *ngFor="let c of categories" [value]="c._id">
+          <option *ngFor="let c of categories" [value]="c.categoriaId">
             {{ c.description }}
           </option>
 
         </select>
+      </div>
+            <!-- MOTIVAZIONE -->
+      <div class="mb-3">
+        <label class="form-label">Motivazione</label>
+
+        <textarea
+          class="form-control"
+          rows="3"
+          placeholder="Inserisci la motivazione della richiesta..."
+          [(ngModel)]="motivazione">
+        </textarea>
       </div>
 
     </div>
@@ -81,7 +92,7 @@ export class AddRequestModal implements OnInit {
   dataInizio = '';
   dataFine = '';
   categoriaId = '';
-
+  motivazione = '';
   categories: any[] = [];
 
   ngOnInit() {
@@ -95,7 +106,8 @@ export class AddRequestModal implements OnInit {
     this.activeModal.close({
       dataInizio: this.dataInizio,
       dataFine: this.dataFine,
-      categoriaId: this.categoriaId
+      categoriaId: this.categoriaId,
+      motivazione: this.motivazione
     });
   }
 }

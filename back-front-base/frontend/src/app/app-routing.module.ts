@@ -4,6 +4,7 @@ import { LoginComponent } from './page/login/login.component';
 import { RegisterComponent } from './page/register/register.component';
 import { HomeComponent } from './page/home/home.component';
 import { authGuard } from './utils/auth.guard';
+import { Analytics } from './page/analytics/analytics';
 
 const routes: Routes = [
   {
@@ -23,7 +24,12 @@ const routes: Routes = [
     path: 'home',
     canActivate:[authGuard],
     component: HomeComponent
-  }
+  },
+  {
+    path: 'analytics',
+    canActivate:[authGuard],
+    component: Analytics
+    }
 ];
 
 @NgModule({

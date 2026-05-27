@@ -5,6 +5,8 @@ export type Request = {
   id: string;
   dataInizio: Date;
   dataFine: Date;
+  dataValutazione?: Date;
+  motivazione?: string;
   categoriaId: string;// FK categoria
   stato: 'In attesa' | 'Approvato' | 'Rifiutato';
   role1ID: string;// FK role1 (untente con meno accesso)

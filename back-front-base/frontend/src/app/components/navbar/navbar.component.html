@@ -1,19 +1,38 @@
-<nav class="navbar bg-dark navbar-expand mb-3" data-bs-theme="dark">
-  <div class="container-fluid">
-    <a class="nabar-brand" [routerLink]="['/home']">ITS-CLASS</a>
-    <div class="collapse navbar-collapse">
+<nav class="navbar">
+
+  <div class="container">
+
+    <!-- BRAND -->
+    <a class="brand" [routerLink]="['/home']">
+      ITS-CLASS
+    </a>
+
+    <!-- LINKS -->
+ <div class="links">
+      <a [routerLink]="['/home']">Home</a>
+       <a *ngIf="userRole === 'role2'" [routerLink]="['/analytics']">
+        Analytics
+      </a>
+      <a [routerLink]="['/login']">Login</a>
     </div>
-    <ul class="navbar-nav me-3">
-      <app-nav-user
-        *ngIf="(currentUser$ | async) as currentUser; else loginButton"
-        (logout)="logout()"
-        [user]="currentUser"
-        ></app-nav-user>
-      <ng-template #loginButton>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/login']">Login</a>
-        </li>
+    <!-- RIGHT SIDE -->
+    <div class="right">
+
+      <ng-container *ngIf="(currentUser$ | async) as currentUser; else login">
+
+        <app-nav-user
+          [user]="currentUser"
+          (logout)="logout()">
+        </app-nav-user>
+
+      </ng-container>
+
+      <ng-template #login>
+        <a class="login" [routerLink]="['/login']">Login</a>
       </ng-template>
-    </ul>
+
+    </div>
+
   </div>
+
 </nav>

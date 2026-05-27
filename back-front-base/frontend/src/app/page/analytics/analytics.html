@@ -1,0 +1,51 @@
+<div class="analytics-page">
+
+  <h1>Analytics Permessi</h1>
+  <p>Statistiche richieste approvate</p>
+
+  <!-- FILTRI -->
+  <div class="filters">
+
+    <select [(ngModel)]="selectedUser" (change)="onFilterChange()">
+      <option value="">Tutti i dipendenti</option>
+
+      <option *ngFor="let u of users" [value]="u.id">
+        {{ u.firstName }} {{ u.lastName }}
+      </option>
+    </select>
+
+    <select [(ngModel)]="selectedMonth" (change)="onFilterChange()">
+      <option value="">Tutti i mesi</option>
+      <option value="1">Gennaio</option>
+      <option value="2">Febbraio</option>
+      <option value="3">Marzo</option>
+      <option value="4">Aprile</option>
+      <option value="5">Maggio</option>
+      <option value="6">Giugno</option>
+      <option value="7">Luglio</option>
+      <option value="8">Agosto</option>
+      <option value="9">Settembre</option>
+      <option value="10">Ottobre</option>
+      <option value="11">Novembre</option>
+      <option value="12">Dicembre</option>
+    </select>
+
+  </div>
+
+  <!-- CARDS -->
+  <div class="cards">
+
+    <div class="card">
+      <h2>{{ totalPermessi }}</h2>
+      <p>Permessi approvati</p>
+    </div>
+
+    <div class="card">
+      <h2>{{ totalGiorni }}</h2>
+      <p>Giorni totali di permesso</p>
+    </div>
+
+  </div>
+
+</div>
+

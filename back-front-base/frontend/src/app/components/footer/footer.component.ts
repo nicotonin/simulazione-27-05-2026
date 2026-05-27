@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { AuthService } from '../../service/auth.service';
 
 @Component({
   selector: 'app-footer',
@@ -8,4 +9,18 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
   year = new Date().getFullYear();
+
+     private authSrv = inject(AuthService);
+
+  userRole: string | null = null;
+
+  currentUser$ = this.authSrv.currentUser$;
+
+  ngOnInit() {
+    this.userRole = this.authSrv.getCurrentUser()?.role ?? null;
+  }
+
+  logout() {
+    this.authSrv.logout();
+  }
 }

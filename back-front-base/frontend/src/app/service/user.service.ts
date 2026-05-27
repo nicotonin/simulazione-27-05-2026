@@ -13,4 +13,13 @@ export class UserService {
     return this.http.get<User[]>('${environment.apiUrl}/users',{params:{role}});
   }
 
+  list1(role: string) {
+  return this.http.get<User[]>(
+    `${environment.apiUrl}/users`,
+    {
+      params: { role }
+    }
+  );
+}
+
 }

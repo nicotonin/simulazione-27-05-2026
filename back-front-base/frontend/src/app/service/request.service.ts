@@ -29,4 +29,11 @@ export class RequestService {
   approveRequest(id: string) {
     return this.http.put(`${environment.apiUrl}/requests/approveRequest/${id}`, {});
   }
+
+  rejectRequest(id: string) {
+  return this.http.put(
+    `${environment.apiUrl}/requests/rejectRequest/${id}/rifiuta`,
+    {}
+  );
+}
 }

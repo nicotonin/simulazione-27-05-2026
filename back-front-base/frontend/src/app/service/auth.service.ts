@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { BehaviorSubject, catchError, distinctUntilChanged, map, of, ReplaySubject, tap } from 'rxjs';
+import { BehaviorSubject, catchError, distinctUntilChanged, map, of, ReplaySubject, take, tap } from 'rxjs';
 import { JwtService } from './jwt.service';
 import { User } from '../entities/user.entity';
 import { Router } from '@angular/router';
@@ -50,6 +50,26 @@ export class AuthService {
 
   register(user: {firstName: string;lastName: string;email: string;password: string;role: string;}) {
   return this.http.post<User>(`${environment.apiUrl}/register`, user)
+}
+
+getRole(): string | null {
+  let role: string | null = null;
+
+  this._currentUser$.subscribe(user => {
+    role = user?.role ?? null;
+  }).unsubscribe();
+
+  return role;
+}
+
+getCurrentUser(): User | null {
+  let value: User | null = null;
+
+  this.currentUser$
+    .pipe(take(1))
+    .subscribe(u => value = u);
+
+  return value;
 }
 
 

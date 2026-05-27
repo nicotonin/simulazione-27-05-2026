@@ -14,6 +14,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { NavUserComponent } from './components/nav-user/nav-user.component';
 import { IfAuthenticatedDirective } from './utils/if-authenticated.directive';
 import { FooterComponent } from './components/footer/footer.component';
+import { Analytics } from './page/analytics/analytics'; 
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FooterComponent } from './components/footer/footer.component';
     NavbarComponent,
     NavUserComponent,
     IfAuthenticatedDirective,
-    FooterComponent
+    FooterComponent,
+    Analytics
   ],
   imports: [
     BrowserModule,
