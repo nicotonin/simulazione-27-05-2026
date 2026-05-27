@@ -11,6 +11,7 @@ export class UserExistsError extends Error {
     }
 }
 
+
 export class UserService {
 
     async add(user: User, credentials: { email: string, password: string }): Promise<User> {
