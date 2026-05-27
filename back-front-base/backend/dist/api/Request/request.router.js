@@ -1,0 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const request_controller_1 = require("./request.controller");
+const router = (0, express_1.Router)();
+router.get("/getAllRequests", request_controller_1.getAllRequests);
+router.post("/createRequest", request_controller_1.createRequest);
+router.get("/getRequestsToApprove", request_controller_1.getRequestsToApprove);
+router.get("/getRequestById/:id", request_controller_1.getRequestById);
+router.put("/updateRequest/:id", request_controller_1.updateRequestById);
+router.put("/approveRequest/:id", request_controller_1.approveRequest);
+router.put("/rejectRequest/:id", request_controller_1.rejectRequest);
+router.delete("/deleteRequest/:id", request_controller_1.deleteRequestById);
+exports.default = router;
