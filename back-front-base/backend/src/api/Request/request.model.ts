@@ -5,7 +5,7 @@ const requestSchema = new Schema<Request1>(
   {
     dataInizio: { type: Date, required: true },
     dataFine: { type: Date, required: true },
-    dataValutazione: { type: Date, required: true},
+    dataValutazione: { type: Date},
     categoriaId: { type: String, required: true },
     stato: { type: String, enum: ["In attesa", "Approvato", "Rifiutato"], default: "In attesa" },
     motivazione: { type: String },
