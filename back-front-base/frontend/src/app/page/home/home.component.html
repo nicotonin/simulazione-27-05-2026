@@ -36,10 +36,13 @@
           <span>{{ r.dataFine | date:'mediumDate' }}</span>
         </div>
 
-        <div class="evaluation" *ngIf="r.dataValutazione">
-          Valutato il {{ r.dataValutazione | date:'mediumDate' }}
+        <div class="evaluation" *ngIf="r.stato === 'Approvato' && r.dataValutazione">
+          Approvato il {{ r.dataValutazione | date:'mediumDate' }}
         </div>
-      </div>
+
+        <div class="evaluation" *ngIf="r.stato === 'Rifiutato' && r.dataValutazione">
+          Rifiutato il {{ r.dataValutazione | date:'mediumDate' }}
+        </div>
 
       <div class="actions" *ngIf="r.stato === 'In attesa'">
 

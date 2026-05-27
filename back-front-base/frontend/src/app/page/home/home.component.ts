@@ -55,13 +55,17 @@ export class HomeComponent implements OnInit {
     }).catch(() => {});
   }
 
-  deleteRequest(id: string) {
-    if (!confirm('Vuoi eliminare questa richiesta?')) return;
+  refreshRequests() {
+  this.requestService.list().subscribe(list => {
+    this.request$ = of(list);
+  });
+}
 
-    this.requestService.delete(id).subscribe(() => {
-      this.refresh$.next();
-    });
-  }
+deleteRequest(id: string) {
+  this.requestService.delete(id).subscribe(() => {
+    this.refreshRequests();
+  });
+}
 
   approveRequest(id: string) {
     this.requestService.approveRequest(id).subscribe(() => {
