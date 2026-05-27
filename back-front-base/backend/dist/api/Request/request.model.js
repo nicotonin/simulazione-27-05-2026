@@ -5,8 +5,10 @@ const mongoose_1 = require("mongoose");
 const requestSchema = new mongoose_1.Schema({
     dataInizio: { type: Date, required: true },
     dataFine: { type: Date, required: true },
+    dataValutazione: { type: Date, required: true },
     categoriaId: { type: String, required: true },
     stato: { type: String, enum: ["In attesa", "Approvato", "Rifiutato"], default: "In attesa" },
+    motivazione: { type: String },
     role1ID: { type: String, required: true },
     role2ID: { type: String },
 }, { timestamps: true });

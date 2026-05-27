@@ -64,11 +64,12 @@ const createRequest = (req, res, next) => __awaiter(void 0, void 0, void 0, func
     var _a;
     try {
         const userId = (_a = req.user) === null || _a === void 0 ? void 0 : _a.id;
-        const { dataInizio, dataFine, categoriaId } = req.body;
+        const { dataInizio, dataFine, categoriaId, motivazione } = req.body;
         const data = {
             dataInizio: new Date(dataInizio),
             dataFine: new Date(dataFine),
             categoriaId,
+            motivazione,
             stato: "In attesa",
             role1ID: userId
         };

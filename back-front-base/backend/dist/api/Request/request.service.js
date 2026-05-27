@@ -52,6 +52,7 @@ class RequestService {
                 return null;
             request.stato = stato;
             request.role2ID = valutatoreId;
+            request.dataValutazione = new Date();
             yield request.save();
             return request;
         });

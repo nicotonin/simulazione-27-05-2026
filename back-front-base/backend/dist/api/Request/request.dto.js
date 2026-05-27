@@ -18,6 +18,14 @@ __decorate([
     (0, class_validator_1.IsDateString)()
 ], CreateRequestDTO.prototype, "dataFine", void 0);
 __decorate([
+    (0, class_validator_1.IsDateString)(),
+    (0, class_validator_1.IsOptional)()
+], CreateRequestDTO.prototype, "dataValutazione", void 0);
+__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsOptional)()
+], CreateRequestDTO.prototype, "motivazione", void 0);
+__decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)()
 ], CreateRequestDTO.prototype, "categoriaId", void 0);
@@ -32,3 +40,7 @@ __decorate([
     (0, class_validator_1.IsDateString)(),
     (0, class_validator_1.IsOptional)()
 ], UpdateRequestDTO.prototype, "dataFine", void 0);
+__decorate([
+    (0, class_validator_1.IsDateString)(),
+    (0, class_validator_1.IsOptional)()
+], UpdateRequestDTO.prototype, "dataValutazione", void 0);
