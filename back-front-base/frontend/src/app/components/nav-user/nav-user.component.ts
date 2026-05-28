@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { User } from '../../entities/user.entity';
+import { User } from '../../service/user.entity';
 
 @Component({
   selector: 'app-nav-user',

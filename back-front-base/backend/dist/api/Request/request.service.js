@@ -58,13 +58,16 @@ class RequestService {
         });
     }
     // ELIMINAZIONE (soft delete: può essere solo da “In attesa”)
-    deleteRequest(id) {
+    deleteRequest(id, userId) {
         return __awaiter(this, void 0, void 0, function* () {
             const request = yield request_model_1.RequestModel.findById(id);
             if (!request)
                 return null;
-            yield request.deleteOne(); // oppure puoi fare soft delete impostando uno stato
-            return true;
+            request.stato = "In attesa";
+            request.dataValutazione = new Date();
+            request.role2ID = userId;
+            yield request.save();
+            return request;
         });
     }
     // APPROVA UNA RICHIESTA (solo responsabili)

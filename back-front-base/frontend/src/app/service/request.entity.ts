@@ -1,4 +1,4 @@
-import { User } from "../entities/user.entity";
+import { User } from "./user.entity";
 import { Category } from "./category.entity";
 
 export type Request = {

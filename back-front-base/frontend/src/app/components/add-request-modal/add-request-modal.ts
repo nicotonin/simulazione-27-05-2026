@@ -103,11 +103,24 @@ export class AddRequestModal implements OnInit {
   }
 
   add() {
-    this.activeModal.close({
-      dataInizio: this.dataInizio,
-      dataFine: this.dataFine,
-      categoriaId: this.categoriaId,
-      motivazione: this.motivazione
-    });
+  if (!this.dataInizio || !this.dataFine) {
+    alert('Inserisci entrambe le date');
+    return;
   }
+
+  const start = new Date(this.dataInizio);
+  const end = new Date(this.dataFine);
+
+  if (start > end) {
+    alert('La data di inizio non può essere maggiore della data di fine');
+    return;
+  }
+
+  this.activeModal.close({
+    dataInizio: this.dataInizio,
+    dataFine: this.dataFine,
+    categoriaId: this.categoriaId,
+    motivazione: this.motivazione
+  });
+}
 }

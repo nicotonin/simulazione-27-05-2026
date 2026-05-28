@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Category } from './category.entity';
-import { User } from '../entities/user.entity';
+import { User } from './user.entity';
 import { environment } from '../../environments/environment';
 
 

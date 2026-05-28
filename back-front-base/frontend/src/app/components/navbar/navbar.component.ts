@@ -9,15 +9,10 @@ import { Router } from '@angular/router';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-    private authSrv = inject(AuthService);
 
-  userRole: string | null = null;
+  private authSrv = inject(AuthService);
 
   currentUser$ = this.authSrv.currentUser$;
-
-  ngOnInit() {
-    this.userRole = this.authSrv.getCurrentUser()?.role ?? null;
-  }
 
   logout() {
     this.authSrv.logout();

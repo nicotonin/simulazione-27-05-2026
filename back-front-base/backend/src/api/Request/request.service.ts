@@ -46,13 +46,17 @@ export class RequestService {
   }
 
   // ELIMINAZIONE (soft delete: può essere solo da “In attesa”)
-  async deleteRequest(id: string) {
-    const request = await RequestModel.findById(id);
-    if (!request) return null;
+async deleteRequest(id: string, userId: string) {
+  const request = await RequestModel.findById(id);
+  if (!request) return null;
 
-    await request.deleteOne(); // oppure puoi fare soft delete impostando uno stato
-    return true;
-  }
+  request.stato = "In attesa";
+  request.dataValutazione = new Date();
+  request.role2ID = userId;
+
+  await request.save();
+  return request;
+}
 
   // APPROVA UNA RICHIESTA (solo responsabili)
 async approveRequest(id: string, valutatoreId: string) {

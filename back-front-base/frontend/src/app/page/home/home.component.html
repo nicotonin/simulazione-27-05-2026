@@ -17,13 +17,11 @@
         <div class="icon">📄</div>
 
         <div class="meta">
-          <div class="name">
-            {{ user?.firstName }} {{ user?.lastName }}
-          </div>
 
           <div class="status" [attr.data-status]="r.stato">
             {{ r.stato }}
           </div>
+
         </div>
       </div>
 
@@ -43,6 +41,8 @@
         <div class="evaluation" *ngIf="r.stato === 'Rifiutato' && r.dataValutazione">
           Rifiutato il {{ r.dataValutazione | date:'mediumDate' }}
         </div>
+
+      </div>
 
       <div class="actions" *ngIf="r.stato === 'In attesa'">
 

@@ -8,13 +8,18 @@
     </a>
 
     <!-- LINKS -->
- <div class="links">
-      <a [routerLink]="['/home']">Home</a>
-       <a *ngIf="userRole === 'role2'" [routerLink]="['/analytics']">
-        Analytics
-      </a>
-      <a [routerLink]="['/login']">Login</a>
-    </div>
+<div class="links">
+
+  <a [routerLink]="['/home']">Home</a>
+
+  <a *ngIf="(currentUser$ | async)?.role === 'role2'"
+     [routerLink]="['/analytics']">
+    Analytics
+  </a>
+
+  <a [routerLink]="['/login']">Login</a>
+
+</div>
     <!-- RIGHT SIDE -->
     <div class="right">
 
